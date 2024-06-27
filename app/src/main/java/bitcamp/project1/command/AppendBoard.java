@@ -6,7 +6,11 @@ import bitcamp.project1.vo.Entry;
 
 public class AppendBoard {
 
-  AccountBook accountBook = new AccountBook();
+  AccountBook accountBook;
+
+  public AppendBoard(AccountBook accountBook) {
+    this.accountBook = accountBook;
+  }
 
   public void append(String subMenuTitle) {
     switch (subMenuTitle) {

@@ -5,14 +5,17 @@ import bitcamp.project1.command.ChangeBoard;
 import bitcamp.project1.command.DeleteBoard;
 import bitcamp.project1.command.ViewBoard;
 import bitcamp.project1.util.Prompt;
+import bitcamp.project1.vo.AccountBook;
 
 public class App {
 
   String[] mainMenus = new String[] {"등록", "조회", "삭제", "수정", "도움말", "종료"};
   String[][] subMenus = {{"예산 설정", "수입 등록", "지출 등록"}, {"예산 조회", "가계부 내역 조회"}};
 
-  AppendBoard appendBoard = new AppendBoard();
-  ViewBoard viewBoard = new ViewBoard();
+  AccountBook accountBook = new AccountBook();
+
+  AppendBoard appendBoard = new AppendBoard(accountBook);
+  ViewBoard viewBoard = new ViewBoard(accountBook);
   DeleteBoard deleteBoard = new DeleteBoard();
   ChangeBoard changeBoard = new ChangeBoard();
 
@@ -118,8 +121,10 @@ public class App {
               viewBoard.view(subMenuTitle);
               break;
             case "삭제":
+              // deleteBoard.delete(subMenuTitle);
               break;
             case "수정":
+              // changeBoard.change(subMenuTitle);
               break;
             default:
               System.out.printf("%s 메뉴의 명령을 처리할 수 없습니다.\n", menuTitle);

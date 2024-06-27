@@ -4,7 +4,11 @@ import bitcamp.project1.vo.AccountBook;
 
 public class ViewBoard {
 
-  AccountBook accountBook = new AccountBook();
+  AccountBook accountBook;
+
+  public ViewBoard(AccountBook accountBook) {
+    this.accountBook = accountBook;
+  }
 
   public void view(String subMenuTitle) {
     switch (subMenuTitle) {
