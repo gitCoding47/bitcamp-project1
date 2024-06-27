@@ -16,6 +16,7 @@ public class Test01 {
   static void m2() {
     System.out.println("오호라!");
   }
+
   static void m1() {
     System.out.println("오로라");
     System.out.println("Updating 14043d2..ad07275\n" +
@@ -23,9 +24,5 @@ public class Test01 {
         "        app/src/main/java/bitcamp/project1/Test01.java\n" +
         "Please commit your changes or stash them before you merge.\n" +
         "Aborting\n");
-  }
-
-  static void m9() {
-    System.out.println("111");
   }
 }
