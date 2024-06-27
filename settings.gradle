@@ -12,7 +12,3 @@ plugins {
 
 rootProject.name = 'bitcamp-project1'
 include('app')
-
-run {
-    standardInput = System.in
-}
