@@ -12,7 +12,7 @@ public class App {
   String[][] subMenus = {{"예산 설정", "수입 등록", "지출 등록"}, {"예산 조회", "가계부 내역 조회"}};
 
   AppendBoard appendBoard = new AppendBoard();
-  ViewBoard viewBoar = new ViewBoard();
+  ViewBoard viewBoard = new ViewBoard();
   DeleteBoard deleteBoard = new DeleteBoard();
   ChangeBoard changeBoard = new ChangeBoard();
 
@@ -39,6 +39,8 @@ public class App {
             System.out.println("유효한 메뉴 번호가 아닙니다.");
           } else if (menuTitle.equals("종료")) {
             break;
+          } else if (menuTitle.equals("도움말")) {
+            showHelp();
           } else {
             processMenu(menuTitle, subMenus[menuNo - 1]);
           }
@@ -92,10 +94,6 @@ public class App {
   }
 
   void processMenu(String menuTitle, String[] menus) {
-    if (menuTitle.equals("도움말")) {
-      System.out.println("도움말입니다.");
-      return;
-    }
     printSubMenu(menuTitle, menus);
     while (true) {
       String command = Prompt.input(String.format("메인/%s>", menuTitle));
@@ -117,7 +115,7 @@ public class App {
               appendBoard.append(subMenuTitle);
               break;
             case "조회":
-              viewBoar.view(subMenuTitle);
+              viewBoard.view(subMenuTitle);
               break;
             case "삭제":
               break;
@@ -132,5 +130,17 @@ public class App {
       }
     }
   }
+
+  void showHelp() {
+    System.out.println("Help Menu:");
+    System.out.println("1. 등록: 월 예산 설정 및 새로운 수입 또는 지출 기록을 등록할 수 있습니다.");
+    System.out.println("2. 조회: 남은 예산 조회 및 가계부 내역 조회를 할 수 있습니다.");
+    System.out.println("3. 삭제: ");
+    System.out.println("4. 수정: ");
+    System.out.println("5. 도움말");
+    System.out.println("6. 종료: 애플리케이션을 종료합니다.");
+    System.out.println("메뉴 옵션을 다시 보고 싶으시면 menu를 입력해주세요.");
+  }
+
 }
 
