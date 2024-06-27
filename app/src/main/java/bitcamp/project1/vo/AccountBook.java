@@ -4,9 +4,9 @@ import java.util.ArrayList;
 
 public class AccountBook {
   ArrayList<Entry> entries = new ArrayList<>();
-  int monthlyBudget;
+  double monthlyBudget;
 
-  public void setMonthlyBudget(int budget) {
+  public void setMonthlyBudget(double budget) {
     this.monthlyBudget = budget;
     System.out.println("월 예산이 설정되었습니다: " + budget);
   }
@@ -17,9 +17,9 @@ public class AccountBook {
   }
 
   public void showRemainingBudget() {
-    int totalExpenditure =
-        entries.stream().filter(e -> e.type.equals("지출")).mapToInt(e -> e.amount).sum();
-    int remainingBudget = monthlyBudget - totalExpenditure;
+    double totalExpenditure =
+        entries.stream().filter(e -> e.type.equals("지출")).mapToInt(e -> (int) e.amount).sum();
+    double remainingBudget = monthlyBudget - totalExpenditure;
     System.out.println("남은 예산: " + remainingBudget);
   }
 

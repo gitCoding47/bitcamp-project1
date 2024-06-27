@@ -11,9 +11,15 @@ public class Prompt {
     return keyboardScanner.nextLine();
   }
 
-  public static int inputInt(String format, Object... args) {
-    return Integer.parseInt(input(format, args));
+//  public static int inputInt(String format, Object... args) {
+//    return Integer.parseInt(input(format, args));
+//  }
+
+
+  public static double inputInt(String format, Object... args) {
+    return Double.parseDouble(input(format, args));
   }
+
 
   public static void close() {
     keyboardScanner.close();
