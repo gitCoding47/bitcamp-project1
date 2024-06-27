@@ -33,6 +33,8 @@ public class App {
             System.out.println("유효한 메뉴 번호가 아닙니다.");
           } else if (menuTitle.equals("종료")) {
             break;
+          } else if(menuTitle.equals("도움말")){
+            showHelp();
           } else {
             processMenu(menuTitle, subMenus[menuNo - 1]);
           }
@@ -86,18 +88,6 @@ public class App {
   }
 
   void processMenu(String menuTitle, String[] menus) {
-    if (menuTitle.equals("도움말")) {
-      System.out.println("Help Menu:");
-      System.out.println("1. 등록: 월 예산 설정 및 새로운 수입 또는 지출 기록을 등록할 수 있습니다.");
-      System.out.println("2. 조회: 남은 예산 조회 및 가계부 내역 조회를 할 수 있습니다.");
-      System.out.println("3. View Statistics: 현재까지의 총 수입과 지출을 확인합니다.");
-      System.out.println("4. Save to File: 현재 기록을 ledger.csv 파일에 저장합니다.");
-      System.out.println("5. Load from File: ledger.csv 파일에서 기록을 불러옵니다.");
-      System.out.println("6. Exit: 애플리케이션을 종료합니다.");
-      System.out.println("오류 처리: 날짜는 YYYY-MM-DD 형식으로, 금액은 숫자로 입력해야 합니다.");
-      System.out.println("지원: 추가적인 도움이 필요하면 support@example.com으로 연락하세요.");
-      return;
-    }
     printSubMenu(menuTitle, menus);
     while (true) {
       String command = Prompt.input(String.format("메인/%s>", menuTitle));
@@ -138,7 +128,7 @@ public class App {
   void append(String subMenuTitle) {
     switch (subMenuTitle) {
       case "월 예산 설정":
-        double budget = Prompt.inputInt("예산 금액을 입력하세요: ");
+        long budget = (long) Prompt.inputInt("예산 금액을 입력하세요: ");
         accountBook.setMonthlyBudget(budget);
         break;
       case "수입 등록":
@@ -170,5 +160,17 @@ public class App {
         System.out.println("잘못된 메뉴 선택입니다.");
     }
   }
+
+  void showHelp() {
+    System.out.println("Help Menu:");
+    System.out.println("1. 등록: 월 예산 설정 및 새로운 수입 또는 지출 기록을 등록할 수 있습니다.");
+    System.out.println("2. 조회: 남은 예산 조회 및 가계부 내역 조회를 할 수 있습니다.");
+    System.out.println("3. 삭제: ");
+    System.out.println("4. 수정: ");
+    System.out.println("5. 도움말");
+    System.out.println("6. 종료: 애플리케이션을 종료합니다.");
+    System.out.println("메뉴 옵션을 다시 보고 싶으시면 menu를 입력해주세요.");
+  }
+
 }
 
