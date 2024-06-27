@@ -39,6 +39,9 @@ public class AccountBook {
   }
 
   public void showEntries() {
+    if (entries.isEmpty()) {
+      System.out.println("내역이 없습니다.");
+    }
     for (int i = 0; i < entries.size(); i++) {
       Entry e = entries.get(i);
       System.out.printf("%d. %s | %s | %d | %s\n", i + 1, e.type, e.description, e.amount, e.date);
