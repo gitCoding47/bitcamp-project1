@@ -7,7 +7,7 @@ import bitcamp.project1.vo.Entry;
 public class App {
 
   String[] mainMenus = new String[] {"등록", "조회", "삭제", "수정", "도움말", "종료"};
-  String[][] subMenus = {{"월 예산 설정", "수입 등록", "지출 등록"}, {"남은 예산 조회", "가계부 내역 조회"}};
+  String[][] subMenus = {{"예산 설정", "수입 등록", "지출 등록"}, {"예산 조회", "가계부 내역 조회"}};
 
   AccountBook accountBook = new AccountBook();
 
@@ -127,10 +127,15 @@ public class App {
 
   void append(String subMenuTitle) {
     switch (subMenuTitle) {
+
       case "월 예산 설정":
         long budget = (long) Prompt.inputInt("예산 금액을 입력하세요: ");
-        accountBook.setMonthlyBudget(budget);
-        break;
+
+//      case "예산 설정":
+//        int budget = Prompt.inputInt("예산 금액을 입력하세요: ");
+//
+//        accountBook.setMonthlyBudget(budget);
+//        break;
       case "수입 등록":
         String incomeDesc = Prompt.input("수입 내역을 입력하세요: ");
         double incomeAmount = Prompt.inputInt("수입 금액을 입력하세요: ");
@@ -150,7 +155,7 @@ public class App {
 
   void view(String subMenuTitle) {
     switch (subMenuTitle) {
-      case "남은 예산 조회":
+      case "예산 조회":
         accountBook.showRemainingBudget();
         break;
       case "가계부 내역 조회":

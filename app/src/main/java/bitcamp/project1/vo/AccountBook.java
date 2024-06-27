@@ -17,10 +17,31 @@ public class AccountBook {
   }
 
   public void showRemainingBudget() {
+<<<<<<< HEAD
     double totalExpenditure =
         entries.stream().filter(e -> e.type.equals("지출")).mapToInt(e -> (int) e.amount).sum();
     double remainingBudget = monthlyBudget - totalExpenditure;
     System.out.println("남은 예산: " + remainingBudget);
+=======
+    int totalExpenditure = 0;
+    int totalIncome = 0;
+
+    for (Entry e : entries) {
+      if (e.type.equals("지출")) {
+        totalExpenditure += e.amount;
+      } else if (e.type.equals("수입")) {
+        totalIncome += e.amount;
+      }
+    }
+    int remainingBudget = monthlyBudget - totalExpenditure;
+    if (monthlyBudget == 0) {
+      System.out.println("예산이 등록되지 않았습니다.");
+    } else {
+      System.out.println("남은 예산: " + remainingBudget);
+    }
+    System.out.println("총 수입: " + totalIncome);
+    System.out.println("총 지출: " + totalExpenditure);
+>>>>>>> 175f1d4bc8df658dc46c74ced5679f037c6ac314
   }
 
   public void showEntries() {
