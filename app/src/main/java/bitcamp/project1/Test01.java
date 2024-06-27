@@ -8,6 +8,10 @@ public class Test01 {
 
   static void m1() {
     System.out.println("오로라");
+    System.out.println("Updating 14043d2..ad07275\n" +
+        "error: Your local changes to the following files would be overwritten by merge:\n" +
+        "        app/src/main/java/bitcamp/project1/Test01.java\n" +
+        "Please commit your changes or stash them before you merge.\n" +
+        "Aborting\n");
   }
-  
 }
