@@ -1,21 +1,18 @@
 package bitcamp.project1;
 
 import bitcamp.project1.command.AppendBoard;
+import bitcamp.project1.command.ChangeBoard;
 import bitcamp.project1.command.DeleteBoard;
+import bitcamp.project1.command.ViewBoard;
 import bitcamp.project1.util.Prompt;
 import bitcamp.project1.vo.AccountBook;
-import bitcamp.project1.command.ChangeBoard;
-import bitcamp.project1.command.ViewBoard;
 
 public class App {
 
   String[] mainMenus = new String[] {"등록", "조회", "삭제", "수정", "도움말", "종료"};
-  String[][] subMenus = {
-      {"예산 설정", "수입 등록", "지출 등록"},
-      {"예산 조회", "가계부 내역 조회"},
-      {"예산 삭제", "내역 삭제"},
-      {"예산 설정", "수입 수정", "지출 수정"}
-  };
+  String[][] subMenus =
+      {{"예산 설정", "수입 등록", "지출 등록"}, {"예산 조회", "가계부 내역 조회"}, {"예산 삭제", "가계부 내역 삭제"},
+          {"예산 설정", "수입 수정", "지출 수정"}};
 
   AccountBook accountBook = new AccountBook();
   AppendBoard appendBoard = new AppendBoard(accountBook);
@@ -25,7 +22,24 @@ public class App {
 
 
   public static void main(String[] args) {
+    showTitleScreen();
+    waitForEnter();
+
+    System.out.println("프로그램이 시작되었습니다.");
+
+
     new App().execute();
+  }
+
+  private static void showTitleScreen() {
+    System.out.println("*********************************");
+    System.out.println("*       가계부 관리 시스템      *");
+    System.out.println("*********************************");
+    System.out.println("    엔터 키를 누르면 시작합니다.    ");
+  }
+
+  private static void waitForEnter() {
+    Prompt.input("계속하려면 엔터 키를 누르세요...");
   }
 
   void execute() {
@@ -78,6 +92,7 @@ public class App {
     }
 
     System.out.println(boldAnsi + line + resetAnsi);
+
   }
 
   void printSubMenu(String menuTitle, String[] menus) {
@@ -147,4 +162,5 @@ public class App {
     System.out.println("메뉴 옵션을 다시 보고 싶으시면 menu를 입력해주세요.");
   }
 }
+
 
