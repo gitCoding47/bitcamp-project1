@@ -42,10 +42,10 @@ public class ViewBoard {
     if (accountBook.getMonthlyBudget() == 0) {
       System.out.println("예산이 등록되지 않았습니다.");
     } else {
-      System.out.println("남은 예산: " + remainingBudget);
+      System.out.printf("남은 예산: %d원\n",remainingBudget);
     }
-    System.out.println("총 수입: " + totalIncome);
-    System.out.println("총 지출: " + totalExpenditure);
+    System.out.printf("총 수입: %d원\n", totalIncome);
+    System.out.printf("총 지출: %d원\n", totalExpenditure);
   }
 
   public void showEntries() {
@@ -54,11 +54,12 @@ public class ViewBoard {
       return;
     }
 
+    System.out.println("번호 날짜 수입/지출 내역 금액");
     for (int i = 0; i < accountBook.getEntries().size(); i++) {
       accountBook.getEntries().get(i).setIndex(i + 1);
       Entry entry = accountBook.getEntries().get(i);
-      System.out.printf("%d. %s | %s | %d | %s\n", entry.getIndex(), entry.getType(),
-          entry.getDescription(), entry.getAmount(), entry.getDate());
+      System.out.printf("%d. %s | %s | %s | %s원\n", entry.getIndex(), entry.getDate(), entry.getType(),
+          entry.getDescription(), entry.getAmount());
     }
   }
 }
