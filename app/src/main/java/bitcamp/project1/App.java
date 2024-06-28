@@ -152,14 +152,16 @@ public class App {
   }
 
   void showHelp() {
+    System.out.println("\033[1m");
     System.out.println("Help Menu:");
-    System.out.println("1. 등록: 월 예산 설정 및 새로운 수입 또는 지출 기록을 등록할 수 있습니다.");
-    System.out.println("2. 조회: 남은 예산 조회 및 가계부 내역 조회를 할 수 있습니다.");
-    System.out.println("3. 삭제: ");
-    System.out.println("4. 수정: ");
-    System.out.println("5. 도움말");
-    System.out.println("6. 종료: 애플리케이션을 종료합니다.");
+    System.out.println("1. 등록: 월 예산 설정 및 새로운 수입 또는 지출 기록을 등록할 수 있습니다.\n");
+    System.out.println("2. 조회: 남은 예산 조회 및 가계부 내역 조회를 할 수 있습니다.\n");
+    System.out.println("3. 삭제: 등록된 예산 삭제 및 가계부 내역을 삭제할 수 있습니다.\n");
+    System.out.println("4. 수정: 예산 재설정, 등록된 수입 및 지출 내용을 수정할 수 있습니다.\n");
+    System.out.println("5. 도움말\n");
+    System.out.println("6. 종료: 애플리케이션을 종료합니다.\n");
     System.out.println("메뉴 옵션을 다시 보고 싶으시면 menu를 입력해주세요.");
+    System.out.println("\033[0m");
   }
 }
 

@@ -27,8 +27,8 @@ public class ChangeBoard {
   }
 
   private void changeBudget() {
-    int budget = Prompt.inputInt("새 예산 금액을 입력하세요: ");
-    accountBook.setMonthlyBudget(budget);
+    int newBudget = Prompt.inputInt("새 예산 금액을 입력하세요: ");
+    accountBook.setMonthlyBudget(newBudget);
   }
 
   private void changeEntry(String entryType) {
@@ -37,7 +37,7 @@ public class ChangeBoard {
     int index = Prompt.inputInt("수정할 항목 번호를 입력하세요: ") - 1;
 
     if (index < 0 || index >= accountBook.getEntries().size()) {
-      System.out.println("유효한 항목 번호가 아닙니다.");
+      System.out.println("수정할 항목이 없습니다.");
       return;
     }
 
