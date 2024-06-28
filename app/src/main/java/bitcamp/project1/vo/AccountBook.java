@@ -3,8 +3,10 @@ package bitcamp.project1.vo;
 import java.util.ArrayList;
 
 public class AccountBook {
-  ArrayList<Entry> entries = new ArrayList<>();
-  int monthlyBudget;
+
+  private int monthlyBudget;
+  private ArrayList<Entry> entries = new ArrayList<>();
+  private int nextIndex = 1;
 
   public void setMonthlyBudget(int budget) {
     this.monthlyBudget = budget;
@@ -12,19 +14,20 @@ public class AccountBook {
   }
 
   public void addEntry(Entry entry) {
+    entry.setIndex(nextIndex++);
     entries.add(entry);
-    System.out.println("항목이 추가되었습니다: " + entry.description);
+    System.out.println("항목이 추가되었습니다: " + entry.getDescription());
   }
 
   public void showRemainingBudget() {
     int totalExpenditure = 0;
     int totalIncome = 0;
 
-    for (Entry e : entries) {
-      if (e.type.equals("지출")) {
-        totalExpenditure += e.amount;
-      } else if (e.type.equals("수입")) {
-        totalIncome += e.amount;
+    for (Entry entry : entries) {
+      if (entry.getType().equals("지출")) {
+        totalExpenditure += entry.getAmount();
+      } else if (entry.getType().equals("수입")) {
+        totalIncome += entry.getAmount();
       }
     }
     int remainingBudget = monthlyBudget - totalExpenditure;
@@ -43,7 +46,8 @@ public class AccountBook {
     }
     for (int i = 0; i < entries.size(); i++) {
       Entry e = entries.get(i);
-      System.out.printf("%d. %s | %s | %d | %s\n", i + 1, e.type, e.description, e.amount, e.date);
+      System.out.printf("%d. %s | %s | %d | %s\n", i + 1, e.getIndex(), e.getDescription(),
+          e.getAmount(), e.getDate());
     }
   }
 }

@@ -1,8 +1,6 @@
 package bitcamp.project1;
 
 import bitcamp.project1.command.AppendBoard;
-import bitcamp.project1.command.ChangeBoard;
-import bitcamp.project1.command.DeleteBoard;
 import bitcamp.project1.command.ViewBoard;
 import bitcamp.project1.util.Prompt;
 import bitcamp.project1.vo.AccountBook;
@@ -13,11 +11,10 @@ public class App {
   String[][] subMenus = {{"예산 설정", "수입 등록", "지출 등록"}, {"예산 조회", "가계부 내역 조회"}};
 
   AccountBook accountBook = new AccountBook();
-
   AppendBoard appendBoard = new AppendBoard(accountBook);
   ViewBoard viewBoard = new ViewBoard(accountBook);
-  DeleteBoard deleteBoard = new DeleteBoard();
-  ChangeBoard changeBoard = new ChangeBoard();
+  //  DeleteBoard deleteBoard = new DeleteBoard(accountBook);
+  //  ChangeBoard changeBoard = new ChangeBoard(accountBook);
 
 
   public static void main(String[] args) {
@@ -26,15 +23,11 @@ public class App {
 
   void execute() {
     printMenu();
-
-    String command;
     while (true) {
       try {
-        command = Prompt.input("메인>");
-
+        String command = Prompt.input("메인>");
         if (command.equals("menu")) {
           printMenu();
-
         } else {
           int menuNo = Integer.parseInt(command);
           String menuTitle = getMenuTitle(menuNo, mainMenus);
@@ -146,6 +139,5 @@ public class App {
     System.out.println("6. 종료: 애플리케이션을 종료합니다.");
     System.out.println("메뉴 옵션을 다시 보고 싶으시면 menu를 입력해주세요.");
   }
-
 }
 

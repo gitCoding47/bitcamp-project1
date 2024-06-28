@@ -1,15 +1,57 @@
 package bitcamp.project1.vo;
 
 public class Entry {
-  String type; // "수입" 또는 "지출"
-  String description;
-  int amount;
-  String date;
+
+  private int index;
+  private String type; // "수입" 또는 "지출"
+  private String description;
+  private int amount;
+  private String date;
 
   public Entry(String type, String description, int amount, String date) {
     this.type = type;
     this.description = description;
     this.amount = amount;
+    this.date = date;
+  }
+
+  public int getIndex() {
+    return index;
+  }
+
+  public void setIndex(int index) {
+    this.index = index;
+  }
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
+  }
+
+  public int getAmount() {
+    return amount;
+  }
+
+  public void setAmount(int amount) {
+    this.amount = amount;
+  }
+
+  public String getDate() {
+    return date;
+  }
+
+  public void setDate(String date) {
     this.date = date;
   }
 }
