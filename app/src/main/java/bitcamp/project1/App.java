@@ -64,8 +64,8 @@ public class App {
     String redAnsi = "\033[31m";
     String resetAnsi = "\033[0m";
 
-    String appTitle = "[가계부 관리 시스템]";
-    String line = "----------------------------------";
+    String appTitle = "[가계부 관리 시스템에 오신걸 환영합니다!!]\n";
+    String line = "--------------------------------------------";
 
     System.out.println(boldAnsi + line + resetAnsi);
     System.out.println(boldAnsi + appTitle + resetAnsi);
@@ -87,7 +87,7 @@ public class App {
     for (int i = 0; i < menus.length; i++) {
       System.out.printf("%d. %s\n", (i + 1), menus[i]);
     }
-    System.out.println("9. 이전");
+    System.out.println("\033[31m" + "\033[1m" + "9. 이전" + "\033[0m");
   }
 
   boolean isValidateMenu(int menuNo, String[] menus) {
