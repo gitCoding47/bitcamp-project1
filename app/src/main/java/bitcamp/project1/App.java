@@ -2,6 +2,8 @@ package bitcamp.project1;
 
 import bitcamp.project1.command.AppendBoard;
 import bitcamp.project1.command.ViewBoard;
+import bitcamp.project1.command.DeleteBoard;
+// import bitcamp.project1.command.ViewBoard;
 import bitcamp.project1.util.Prompt;
 import bitcamp.project1.vo.AccountBook;
 
@@ -13,8 +15,8 @@ public class App {
   AccountBook accountBook = new AccountBook();
   AppendBoard appendBoard = new AppendBoard(accountBook);
   ViewBoard viewBoard = new ViewBoard(accountBook);
-  //  DeleteBoard deleteBoard = new DeleteBoard(accountBook);
-  //  ChangeBoard changeBoard = new ChangeBoard(accountBook);
+  DeleteBoard deleteBoard = new DeleteBoard(accountBook);
+  // ChangeBoard changeBoard = new ChangeBoard(accountBook);
 
 
   public static void main(String[] args) {
@@ -114,7 +116,7 @@ public class App {
               viewBoard.view(subMenuTitle);
               break;
             case "삭제":
-              // deleteBoard.delete(subMenuTitle);
+               deleteBoard.delete(subMenuTitle);
               break;
             case "수정":
               // changeBoard.change(subMenuTitle);
