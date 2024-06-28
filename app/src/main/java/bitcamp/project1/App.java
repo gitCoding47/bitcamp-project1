@@ -22,24 +22,11 @@ public class App {
 
 
   public static void main(String[] args) {
-    showTitleScreen();
-    waitForEnter();
-
-    System.out.println("프로그램이 시작되었습니다.");
-
+    CashTitleScreen.showTitleScreen();
+    CashTitleScreen.waitForEnter();
+    System.out.println(CashTitleScreen.GREEN + "가계부 프로그램이 시작되었습니다." + CashTitleScreen.RESET);
 
     new App().execute();
-  }
-
-  private static void showTitleScreen() {
-    System.out.println("*********************************");
-    System.out.println("*       가계부 관리 시스템      *");
-    System.out.println("*********************************");
-    System.out.println("    엔터 키를 누르면 시작합니다.    ");
-  }
-
-  private static void waitForEnter() {
-    Prompt.input("계속하려면 엔터 키를 누르세요...");
   }
 
   void execute() {
