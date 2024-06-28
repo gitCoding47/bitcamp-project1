@@ -15,6 +15,10 @@ public class AppendBoard {
   public void append(String subMenuTitle) {
     switch (subMenuTitle) {
       case "예산 설정":
+        if (accountBook.getMonthlyBudget() != 0) {
+          System.out.println("예산이 이미 설정되어 있습니다!!");
+          break;
+        }
         int budget = Prompt.inputInt("예산 금액을 입력하세요: ");
         accountBook.setMonthlyBudget(budget);
         break;
