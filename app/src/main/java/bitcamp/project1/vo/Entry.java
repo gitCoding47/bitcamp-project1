@@ -7,12 +7,22 @@ public class Entry {
   private String description;
   private int amount;
   private String date;
+  private String category;
 
-  public Entry(String type, String description, int amount, String date) {
+  public Entry(String type, String description, int amount, String date, String category) {
     this.type = type;
     this.description = description;
     this.amount = amount;
     this.date = date;
+    this.category = category;
+  }
+
+  public String getCategory() {
+    return category;
+  }
+
+  public void setCategory(String category) {
+    this.category = category;
   }
 
   public int getIndex() {

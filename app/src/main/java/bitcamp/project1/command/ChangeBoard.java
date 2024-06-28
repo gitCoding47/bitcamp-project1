@@ -7,7 +7,7 @@ import org.checkerframework.checker.units.qual.A;
 
 public class ChangeBoard {
 
-  private final AccountBook accountBook;
+  private AccountBook accountBook;
 
   public ChangeBoard(AccountBook accountBook) {
     this.accountBook = accountBook;
@@ -56,9 +56,12 @@ public class ChangeBoard {
       return;
     }
 
-    String description = Prompt.input(String.format("새 %s 내역을 입력하세요 (현재: %s): ", entry.getType(), entry.getDescription()));
-    int amount = Prompt.inputInt(String.format("새 %s 금액을 입력하세요 (현재: %d): ", entry.getType(), entry.getAmount()));
-    String date = Prompt.input(String.format("새 %s 날짜를 입력하세요 (현재: %s): ", entry.getType(), entry.getDate()));
+    String description = Prompt.input(
+        String.format("새 %s 내역을 입력하세요 (현재: %s): ", entry.getType(), entry.getDescription()));
+    int amount = Prompt.inputInt(
+        String.format("새 %s 금액을 입력하세요 (현재: %d): ", entry.getType(), entry.getAmount()));
+    String date =
+        Prompt.input(String.format("새 %s 날짜를 입력하세요 (현재: %s): ", entry.getType(), entry.getDate()));
 
     entry.setDescription(description);
     entry.setAmount(amount);

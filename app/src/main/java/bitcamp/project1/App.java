@@ -10,12 +10,9 @@ import bitcamp.project1.vo.AccountBook;
 public class App {
 
   String[] mainMenus = new String[] {"등록", "조회", "삭제", "수정", "도움말", "종료"};
-  String[][] subMenus = {
-      {"예산 설정", "수입 등록", "지출 등록"},
-      {"예산 조회", "가계부 내역 조회"},
-      {"예산 삭제", "가계부 내역 삭제"},
-      {"예산 설정", "수입 수정", "지출 수정"}
-  };
+  String[][] subMenus =
+      {{"예산 설정", "수입 등록", "지출 등록"}, {"예산 조회", "가계부 내역 조회", "카테고리별 내역 조회"}, {"예산 삭제", "가계부 내역 삭제"},
+          {"예산 설정", "수입 수정", "지출 수정"}};
 
   AccountBook accountBook = new AccountBook();
   AppendBoard appendBoard = new AppendBoard(accountBook);
@@ -67,8 +64,8 @@ public class App {
     String redAnsi = "\033[31m";
     String resetAnsi = "\033[0m";
 
-    String appTitle = "[가계부 관리 시스템]";
-    String line = "----------------------------------";
+    String appTitle = "[가계부 관리 시스템에 오신걸 환영합니다!!]\n";
+    String line = "--------------------------------------------";
 
     System.out.println(boldAnsi + line + resetAnsi);
     System.out.println(boldAnsi + appTitle + resetAnsi);
@@ -90,7 +87,7 @@ public class App {
     for (int i = 0; i < menus.length; i++) {
       System.out.printf("%d. %s\n", (i + 1), menus[i]);
     }
-    System.out.println("9. 이전");
+    System.out.println("\033[31m" + "\033[1m" + "9. 이전" + "\033[0m");
   }
 
   boolean isValidateMenu(int menuNo, String[] menus) {
