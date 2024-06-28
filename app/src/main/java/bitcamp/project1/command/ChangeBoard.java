@@ -3,6 +3,7 @@ package bitcamp.project1.command;
 import bitcamp.project1.util.Prompt;
 import bitcamp.project1.vo.AccountBook;
 import bitcamp.project1.vo.Entry;
+import org.checkerframework.checker.units.qual.A;
 
 public class ChangeBoard {
 
@@ -27,8 +28,12 @@ public class ChangeBoard {
   }
 
   private void changeBudget() {
-    int newBudget = Prompt.inputInt("새 예산 금액을 입력하세요: ");
-    accountBook.setMonthlyBudget(newBudget);
+    if (accountBook.getMonthlyBudget() == 0) {
+      System.out.println("수정할 수 있는 예산이 없습니다.");
+    } else {
+      int newBudget = Prompt.inputInt("새 예산 금액을 입력하세요: ");
+      accountBook.setMonthlyBudget(newBudget);
+    }
   }
 
   private void changeEntry(String entryType) {

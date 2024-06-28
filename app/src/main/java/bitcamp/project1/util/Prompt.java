@@ -19,4 +19,3 @@ public class Prompt {
     keyboardScanner.close();
   }
 }
-
