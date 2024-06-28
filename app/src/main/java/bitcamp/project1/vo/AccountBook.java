@@ -19,6 +19,14 @@ public class AccountBook {
 
     System.out.println("항목이 추가되었습니다: " + entry.getDescription());
   }
+  
+  public boolean deleteEntry(int index) {
+    if (index >= 0 && index < entries.size()) {
+      entries.remove(index);
+      return true;
+    }
+    return false;
+  }
 
   public ArrayList<Entry> getEntries() {
     return entries;
