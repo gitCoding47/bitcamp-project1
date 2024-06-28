@@ -33,4 +33,19 @@ public class AccountBook {
     System.out.println("월 예산이 설정되었습니다: " + budget);
   }
 
+  public void showEntries() {
+
+    if (entries.isEmpty()) {
+      System.out.println("내역이 없습니다.");
+      return;
+    }
+
+    System.out.println("번호 날짜 수입/지출 내역 금액");
+    for (int i = 0; i < entries.size(); i++) {
+      entries.get(i).setIndex(i + 1);
+      Entry entry = entries.get(i);
+      System.out.printf("%d. %s | %s | %s | %s원\n", entry.getIndex(), entry.getDate(), entry.getType(),
+          entry.getDescription(), entry.getAmount());
+    }
+  }
 }
