@@ -6,7 +6,7 @@ import bitcamp.project1.vo.Entry;
 
 public class AppendBoard {
 
-  AccountBook accountBook;
+  private AccountBook accountBook;
 
   public AppendBoard(AccountBook accountBook) {
     this.accountBook = accountBook;
