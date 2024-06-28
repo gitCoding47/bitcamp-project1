@@ -21,6 +21,7 @@ public class AppendBoard {
         }
         int budget = Prompt.inputInt("예산 금액을 입력하세요: ");
         accountBook.setMonthlyBudget(budget);
+        System.out.println("월 예산이 설정되었습니다: " + budget);
         break;
       case "수입 등록":
         String incomeDesc = Prompt.input("수입 내역을 입력하세요: ");

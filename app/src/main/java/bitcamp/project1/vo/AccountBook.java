@@ -30,7 +30,6 @@ public class AccountBook {
 
   public void setMonthlyBudget(int budget) {
     this.monthlyBudget = budget;
-    System.out.println("월 예산이 설정되었습니다: " + budget);
   }
 
   public void showEntries() {

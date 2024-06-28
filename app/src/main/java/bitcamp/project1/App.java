@@ -2,6 +2,8 @@ package bitcamp.project1;
 
 import bitcamp.project1.command.AppendBoard;
 import bitcamp.project1.command.ViewBoard;
+import bitcamp.project1.command.DeleteBoard;
+// import bitcamp.project1.command.ViewBoard;
 import bitcamp.project1.util.Prompt;
 import bitcamp.project1.vo.AccountBook;
 import bitcamp.project1.command.ChangeBoard;
@@ -12,14 +14,14 @@ public class App {
   String[][] subMenus = {
       {"예산 설정", "수입 등록", "지출 등록"},
       {"예산 조회", "가계부 내역 조회"},
-      {},
+      {"예산 삭제", "내역 삭제"},
       {"예산 설정", "수입 수정", "지출 수정"}
   };
 
   AccountBook accountBook = new AccountBook();
   AppendBoard appendBoard = new AppendBoard(accountBook);
   ViewBoard viewBoard = new ViewBoard(accountBook);
-  //  DeleteBoard deleteBoard = new DeleteBoard(accountBook);
+  DeleteBoard deleteBoard = new DeleteBoard(accountBook);
   ChangeBoard changeBoard = new ChangeBoard(accountBook);
 
 
@@ -120,7 +122,7 @@ public class App {
               viewBoard.view(subMenuTitle);
               break;
             case "삭제":
-              // deleteBoard.delete(subMenuTitle);
+               deleteBoard.delete(subMenuTitle);
               break;
             case "수정":
               changeBoard.change(subMenuTitle);
